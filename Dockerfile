@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM biocontainers/biocontainers:v1.0.0_cv4
 
 MAINTAINER William Poehlman <william.poehlman@sagebase.org>
 LABEL base_image="biocontainers/biocontainers:v1.0.0_cv4"
@@ -8,20 +8,19 @@ LABEL about.license="SPDX:MIT"
 COPY VERSION /
 COPY SOFTWARE_VERSION /
 
-FROM biocontainers/biocontainers:v1.0.0_cv4
-
 USER root
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     tzdata
 
-RUN wget https://github.com/broadinstitute/picard/releases/download/2.2.4/picard-tools-2.2.4.zip && \
-  unzip -q picard-tools-2.2.4.zip && \
-  rm picard-tools-2.2.4.zip && \
-  mv picard-tools-2.2.4 /usr/local/lib/
+RUN export SOFTWARE_VERSION=$(cat /SOFTWARE_VERSION) && \
+  wget https://github.com/broadinstitute/picard/releases/download/${SOFTWARE_VERSION}/picard-tools-${SOFTWARE_VERSION}.zip && \
+  unzip -q picard-tools-${SOFTWARE_VERSION}.zip && \
+  rm picard-tools-${SOFTWARE_VERSION}.zip && \
+  mv picard-tools-${SOFTWARE_VERSION} /usr/local/lib/
 
-ENV JAR_DIR /usr/local/lib/picard-tools-2.2.4
+ENV JAR_DIR /usr/local/lib/picard-tools-$(cat /SOFTWARE_VERSION)
 
 ENV CONDA_PACKAGES \
   python=2.7 \
