@@ -100,7 +100,7 @@ inputs:
 
   - id: output_metrics_filename
     type: string?
-    default: output_metrics.txt
+    default: output_alignment_metrics.txt
     inputBinding:
       position: 9
       prefix: OUTPUT=

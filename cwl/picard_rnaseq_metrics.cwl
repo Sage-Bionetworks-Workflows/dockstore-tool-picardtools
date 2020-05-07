@@ -33,14 +33,6 @@ hints:
     dockerPull: 'wpoehlm/ngstools:picard'
 
 inputs:
-#  - id: memory
-#    label: java memory allocation
-#    type: string?
-#    default: -Xmx50g
-#    inputBinding:
-#      prefix: default_jvm_mem_opts=
-#      separate: false
-
   - id: aligned_reads_sam
     label: Aligned reads SAM
     doc: Reads data file in SAM (or BAM) format
@@ -127,7 +119,7 @@ inputs:
 
   - id: output_metrics_filename
     type: string?
-    default: output_metrics.txt
+    default: output_rnaseq_metrics.txt
     inputBinding:
       position: 11
       prefix: OUTPUT=
