@@ -27,7 +27,7 @@
   tool: ../cwl/picard_rnaseq_metrics.cwl
   doc: Test that we can calculate picard RNASeq metrics
   short_name: RNA metrics
-- job: ../cwl/testing/alignmeterics.json
+- job: ../cwl/testing/alignmetrics.json
   output:
     alignmentsummarymetrics_txt:
       basename: output_alignment_metrics.txt
@@ -36,4 +36,14 @@
   tool: ../cwl/picard_alignmentsummary_metrics.cwl
   doc: Test that we can calculate picard alignment summary metrics
   short_name: alignment metrics
+- job: ../cwl/testing/combinesample.json
+  output:
+    combined_metrics_csv:
+      basename: test_combined_metrics.csv
+      checksum: sha1$7532f37ed27a54645aff4e185ed4e45005ff8171
+      class: File
+      size: 1906
+  tool: ../cwl/combine_metrics_sample.cwl
+  doc: Test that we can combine picard rnaseq and alignment summary metrics into a single file for a sample
+  short_name: combine sample metrics
 
