@@ -1,0 +1,21 @@
+- job: ../cwl/testing/refflat.json
+  output:
+    picard_refflat:
+      basename: small.gtf.refFlat.txt
+      checksum: sha1$3d9e4c6537185b7c815a9b2da10e38167c871fb7
+      class: File
+      size: 1696
+  tool: ../cwl/prep_refflat.cwl
+  doc: Test that a picard-compatible refflat file is created
+  short_name: refflat
+- job: ../cwl/testing/riboints.json
+  output:
+    picard_riboints:
+      basename: small.gtf.rRNA.interval_list
+      checksum: sha1$9036a3e9101b1a4ce06d0c5432a505af8779ba0a
+      class: File
+      size: 86
+  tool: ../cwl/prep_riboints.cwl
+  doc: Test that a picard-compatible ribosomal interval file is created
+  short_name: riboints
+   
