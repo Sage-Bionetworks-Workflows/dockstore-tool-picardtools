@@ -46,4 +46,14 @@
   tool: ../cwl/combine_metrics_sample.cwl
   doc: Test that we can combine picard rnaseq and alignment summary metrics into a single file for a sample
   short_name: combine sample metrics
+- job: ../cwl/testing/combinestudy.json
+  output:
+    combined_metrics:
+      basename: Study_all_metrics_matrix.txt
+      checksum: sha1$1059f7f84f4ae4f50ab29dbb2bbe184a85e3ff2f
+      class: File
+      size: 2049
+  tool: ../cwl/combine_metrics_study.cwl
+  doc: Test that we can combine picard metrics from multiple samples into a single file
+  short_name: combine study metrics
 
