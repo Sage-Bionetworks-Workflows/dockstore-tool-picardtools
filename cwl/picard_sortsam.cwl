@@ -79,4 +79,4 @@ requirements:
   - class: InlineJavascriptRequirement
 hints:
   - class: DockerRequirement
-    dockerPull: 'wpoehlm/ngstools:picard'
+    dockerPull: 'sagebionetworks/dockstore-tool-picardtools:develop-latest'

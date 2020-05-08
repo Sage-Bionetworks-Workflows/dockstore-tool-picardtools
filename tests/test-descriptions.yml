@@ -56,4 +56,29 @@
   tool: ../cwl/combine_metrics_study.cwl
   doc: Test that we can combine picard metrics from multiple samples into a single file
   short_name: combine study metrics
+- job: ../cwl/testing/sortsam.json
+  output:
+    sorted_reads_bam:
+      basename: sorted_test.bam
+      checksum: sha1$c2f7084149cb4d5353fdaa660e2d77cc7b375678
+      class: File
+      size: 970672
+  tool: ../cwl/picard_sortsam.cwl
+  doc: Test that we can sort a sam or bam file
+  short_name: sortsam
+- job: ../cwl/testing/samtofastq.json
+  output:
+    mate_1:
+      basename: test_1.fastq
+      checksum: sha1$c8e659931aa3aef2bd0235584ee6d476439c95cf
+      class: File
+      size: 2238894
+    mate_2:
+      basename: test_2.fastq
+      checksum: sha1$7a3a6955b7e6d150942011056b08691f43c6576b
+      class: File
+      size: 2238894
+  tool: ../cwl/picard_samtofastq.cwl
+  doc: Test that we can convert a bam or sam file into fastq file(s)
+  short_name: samtofastq
 

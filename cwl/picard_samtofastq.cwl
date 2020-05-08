@@ -22,7 +22,7 @@ requirements:
 
 hints:
   - class: DockerRequirement
-    dockerPull: 'wpoehlm/ngstools:picard'
+    dockerPull: 'sagebionetworks/dockstore-tool-picardtools:develop-latest'
 
 inputs:
 
@@ -60,12 +60,6 @@ inputs:
       separate: false
 
 outputs:
-#  - id: output_fq
-#    label: fastq
-#    type: File[]
-#    outputBinding:
-#      glob: "*fastq"
-
   - id: mate_1
     label: mate 1 fastq
     type: File
