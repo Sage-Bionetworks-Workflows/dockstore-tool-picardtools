@@ -1,0 +1,14 @@
+{
+    "basef": "test",
+    "combined_metrics_filename": "test_combined_metrics.csv",
+    "picard_metrics": [
+      {
+        "class": "File",
+        "path": "output_rnaseq_metrics.txt"
+      },
+      {
+        "class": "File",
+        "path": "output_alignment_metrics.txt"
+      }
+    ]
+}

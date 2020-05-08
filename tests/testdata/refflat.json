@@ -1,0 +1,6 @@
+{
+    "genemodel_gtf": {
+        "class": "File",
+        "path": "./small.gtf"
+    }
+}

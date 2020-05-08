@@ -1,0 +1,7 @@
+{
+    "sorted_reads_filename": "sorted_test.bam",
+    "aligned_reads_sam": {
+        "class": "File",
+        "path": "./STARAligned.out.bam"
+    }
+}

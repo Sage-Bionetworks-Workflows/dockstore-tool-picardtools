@@ -1,0 +1,8 @@
+{
+    "reads_r1_fastq": "test_1.fastq",
+    "reads_r2_fastq": "test_2.fastq",
+    "aligned_reads_sam": {
+        "class": "File",
+        "path": "./STARAligned.out.bam"
+    }
+}
