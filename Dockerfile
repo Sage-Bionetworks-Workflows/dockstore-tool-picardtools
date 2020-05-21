@@ -14,13 +14,13 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     tzdata
 
-RUN export SOFTWARE_VERSION=$(cat /SOFTWARE_VERSION) && \
+RUN export SOFTWARE_VERSION='2.2.4' && \
   wget https://github.com/broadinstitute/picard/releases/download/${SOFTWARE_VERSION}/picard-tools-${SOFTWARE_VERSION}.zip && \
   unzip -q picard-tools-${SOFTWARE_VERSION}.zip && \
   rm picard-tools-${SOFTWARE_VERSION}.zip && \
   mv picard-tools-${SOFTWARE_VERSION} /usr/local/lib/
 
-ENV JAR_DIR /usr/local/lib/picard-tools-$(cat /SOFTWARE_VERSION)
+ENV JAR_DIR /usr/local/lib/picard-tools-2.2.4
 
 ENV CONDA_PACKAGES \
   python=2.7 \
