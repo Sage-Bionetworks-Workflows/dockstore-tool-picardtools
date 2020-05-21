@@ -1,44 +1,37 @@
-#!/usr/bin/env cwl-runner
-
+baseCommand:
+- combine_metrics_sample.py
 class: CommandLineTool
 cwlVersion: v1.0
-id: combine-metrics
-label: Combine Picard metrics per sample
+doc: 'Combine data from one or more Picard metrics outputs into a
 
-doc: |
-  Combine data from one or more Picard metrics outputs into a
   single CSV table.
 
-baseCommand: ['combine_metrics_sample.py']
-
+  '
+hints:
+- class: DockerRequirement
+  dockerPull: sagebionetworks/dockstore-tool-picardtools:0.0.1-6da3af6
+id: combine-metrics
+inputs:
+- id: basef
+  type: string
+- id: picard_metrics
+  inputBinding:
+    position: 0
+  label: Picard metrics files to combine
+  type: File[]
+- id: combined_metrics_filename
+  inputBinding:
+    position: 1
+    prefix: -o
+  label: Output metrics filename
+  type: string
+label: Combine Picard metrics per sample
+outputs:
+- doc: Combined metrics table saved as CSV text file
+  id: combined_metrics_csv
+  label: Combined metrics table
+  outputBinding:
+    glob: '*csv'
+  type: File
 requirements:
   StepInputExpressionRequirement: {}
-
-hints:
-  - class: DockerRequirement
-    dockerPull: 'sagebionetworks/dockstore-tool-picardtools:0.0.0'
-
-inputs:
-  - id: basef
-    type: string
-  - id: picard_metrics
-    label: Picard metrics files to combine
-    type: File[]
-    inputBinding:
-      position: 0
-
-  - id: combined_metrics_filename
-    label: Output metrics filename
-    type: string
-    inputBinding:
-      position: 1
-      prefix: -o
-
-outputs:
-
-  - id: combined_metrics_csv
-    label: Combined metrics table
-    doc: Combined metrics table saved as CSV text file
-    type: File
-    outputBinding:
-      glob: "*csv"

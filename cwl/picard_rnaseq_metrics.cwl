@@ -1,135 +1,108 @@
-#!/usr/bin/env cwl-runner
-
+baseCommand:
+- picard.sh
+- CollectRnaSeqMetrics
 class: CommandLineTool
 cwlVersion: v1.0
-id: picard-rnaseqmetrics
-label: Picard CollectRnaSeqMetrics
-
-doc: |
-  Use Picard to compute alignment summary metrics.
-
-  Original command:
-  java -Xmx8G -jar $PICARD CollectRnaSeqMetrics \
-    VALIDATION_STRINGENCY=LENIENT \
-    MAX_RECORDS_IN_RAM=4000000 \
-    STRAND_SPECIFICITY=NONE \
-    MINIMUM_LENGTH=500 \
-    RRNA_FRAGMENT_PERCENTAGE=0.8 \
-    METRIC_ACCUMULATION_LEVEL=ALL_READS \
-    R=$FASTA \
-    REF_FLAT=$REFFLAT \
-    RIBOSOMAL_INTERVALS=$RIBOINTS \
-    INPUT="picard/${sample}.tmp.bam" \
-    OUTPUT="picard/${sample}/picard.analysis.CollectRnaSeqMetrics" \
-    TMP_DIR="${scratchdir}/${USER}/${sample}/"
-
-baseCommand: ['picard.sh', 'CollectRnaSeqMetrics']
-
-requirements:
-  - class: InlineJavascriptRequirement
-
+doc: "Use Picard to compute alignment summary metrics.\n\nOriginal command:\njava\
+  \ -Xmx8G -jar $PICARD CollectRnaSeqMetrics \\\n  VALIDATION_STRINGENCY=LENIENT \\\
+  \n  MAX_RECORDS_IN_RAM=4000000 \\\n  STRAND_SPECIFICITY=NONE \\\n  MINIMUM_LENGTH=500\
+  \ \\\n  RRNA_FRAGMENT_PERCENTAGE=0.8 \\\n  METRIC_ACCUMULATION_LEVEL=ALL_READS \\\
+  \n  R=$FASTA \\\n  REF_FLAT=$REFFLAT \\\n  RIBOSOMAL_INTERVALS=$RIBOINTS \\\n  INPUT=\"\
+  picard/${sample}.tmp.bam\" \\\n  OUTPUT=\"picard/${sample}/picard.analysis.CollectRnaSeqMetrics\"\
+  \ \\\n  TMP_DIR=\"${scratchdir}/${USER}/${sample}/\"\n"
 hints:
-  - class: DockerRequirement
-    dockerPull: 'sagebionetworks/dockstore-tool-picardtools:0.0.0'
-
+- class: DockerRequirement
+  dockerPull: sagebionetworks/dockstore-tool-picardtools:0.0.1-6da3af6
+id: picard-rnaseqmetrics
 inputs:
-  - id: aligned_reads_sam
-    label: Aligned reads SAM
-    doc: Reads data file in SAM (or BAM) format
-    type: File
-    inputBinding:
-      position: 1
-      prefix: INPUT=
-      separate: false
-
-  - id: genome_fasta
-    label: Genome sequence FASTA
-    doc: Reference genome sequence in FASTA format
-    type: File
-    inputBinding:
-      position: 2
-      prefix: R=
-      separate: false
-
-  - id: picard_refflat
-    label: Picard refFlat
-    doc: Picard refFlat reference
-    type: File
-    inputBinding:
-      position: 3
-      prefix: REF_FLAT=
-      separate: false
-
-  - id: picard_riboints
-    label: Picard ribosomal intervals
-    doc: Picard ribosomal (rRNA) interval list file
-    type: File
-    inputBinding:
-      position: 4
-      prefix: RIBOSOMAL_INTERVALS=
-      separate: false
-
-  - id: max_records_in_ram
-    type: int
-    default: 4000000
-    inputBinding:
-      position: 5
-      prefix: MAX_RECORDS_IN_RAM=
-      separate: false
-
-  - id: strand_specificity
-    type: string
-    default: "NONE"
-    inputBinding:
-      position: 6
-      prefix: STRAND_SPECIFICITY=
-      separate: false
-
-  - id: minimum_length
-    type: int
-    default: 500
-    inputBinding:
-      position: 7
-      prefix: MINIMUM_LENGTH=
-      separate: false
-
-  - id: rrna_fragment_percentage
-    type: float
-    default: 0.8
-    inputBinding:
-      position: 8
-      prefix: RRNA_FRAGMENT_PERCENTAGE=
-      separate: false
-
-  - id: metric_accumulation_level
-    type: string
-    default: "ALL_READS"
-    inputBinding:
-      position: 9
-      prefix: METRIC_ACCUMULATION_LEVEL=
-      separate: false
-
-  - id: validation_stringency
-    type: string
-    default: "LENIENT"
-    inputBinding:
-      position: 10
-      prefix: VALIDATION_STRINGENCY=
-      separate: false
-
-  - id: output_metrics_filename
-    type: string?
-    default: output_rnaseq_metrics.txt
-    inputBinding:
-      position: 11
-      prefix: OUTPUT=
-      separate: false
-
+- doc: Reads data file in SAM (or BAM) format
+  id: aligned_reads_sam
+  inputBinding:
+    position: 1
+    prefix: INPUT=
+    separate: false
+  label: Aligned reads SAM
+  type: File
+- doc: Reference genome sequence in FASTA format
+  id: genome_fasta
+  inputBinding:
+    position: 2
+    prefix: R=
+    separate: false
+  label: Genome sequence FASTA
+  type: File
+- doc: Picard refFlat reference
+  id: picard_refflat
+  inputBinding:
+    position: 3
+    prefix: REF_FLAT=
+    separate: false
+  label: Picard refFlat
+  type: File
+- doc: Picard ribosomal (rRNA) interval list file
+  id: picard_riboints
+  inputBinding:
+    position: 4
+    prefix: RIBOSOMAL_INTERVALS=
+    separate: false
+  label: Picard ribosomal intervals
+  type: File
+- default: 4000000
+  id: max_records_in_ram
+  inputBinding:
+    position: 5
+    prefix: MAX_RECORDS_IN_RAM=
+    separate: false
+  type: int
+- default: NONE
+  id: strand_specificity
+  inputBinding:
+    position: 6
+    prefix: STRAND_SPECIFICITY=
+    separate: false
+  type: string
+- default: 500
+  id: minimum_length
+  inputBinding:
+    position: 7
+    prefix: MINIMUM_LENGTH=
+    separate: false
+  type: int
+- default: 0.8
+  id: rrna_fragment_percentage
+  inputBinding:
+    position: 8
+    prefix: RRNA_FRAGMENT_PERCENTAGE=
+    separate: false
+  type: float
+- default: ALL_READS
+  id: metric_accumulation_level
+  inputBinding:
+    position: 9
+    prefix: METRIC_ACCUMULATION_LEVEL=
+    separate: false
+  type: string
+- default: LENIENT
+  id: validation_stringency
+  inputBinding:
+    position: 10
+    prefix: VALIDATION_STRINGENCY=
+    separate: false
+  type: string
+- default: output_rnaseq_metrics.txt
+  id: output_metrics_filename
+  inputBinding:
+    position: 11
+    prefix: OUTPUT=
+    separate: false
+  type: string?
+label: Picard CollectRnaSeqMetrics
 outputs:
-
-  - id: rnaseqmetrics_txt
-    label: Picard RnaSeqMetrics
-    doc: Picard CollectRnaSeqMetrics results
-    type: File
-    outputBinding:
-      glob: "*txt"
+- doc: Picard CollectRnaSeqMetrics results
+  id: rnaseqmetrics_txt
+  label: Picard RnaSeqMetrics
+  outputBinding:
+    glob: '*txt'
+  type: File
+requirements:
+- class: InlineJavascriptRequirement

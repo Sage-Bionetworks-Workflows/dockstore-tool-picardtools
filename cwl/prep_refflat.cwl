@@ -1,33 +1,26 @@
-#!/usr/bin/env cwl-runner
-
+baseCommand:
+- make_refflat.sh
 class: CommandLineTool
 cwlVersion: v1.0
-id: prep-refflat
-label: Build Picard refFlat
+doc: 'Generate refFlat reference file for Picard CollectRnaSeqMetrics.
 
-doc: |
-  Generate refFlat reference file for Picard CollectRnaSeqMetrics.
-
-baseCommand: ['make_refflat.sh']
-
+  '
 hints:
-  - class: DockerRequirement
-    dockerPull: 'sagebionetworks/dockstore-tool-picardtools:0.0.0'
-
+- class: DockerRequirement
+  dockerPull: sagebionetworks/dockstore-tool-picardtools:0.0.1-6da3af6
+id: prep-refflat
 inputs:
-
-  - id: genemodel_gtf
-    label: Gene model GTF
-    doc: Gene annotations (gene model) in GTF from Gencode
-    type: File
-    inputBinding:
-      position: 0
-
+- doc: Gene annotations (gene model) in GTF from Gencode
+  id: genemodel_gtf
+  inputBinding:
+    position: 0
+  label: Gene model GTF
+  type: File
+label: Build Picard refFlat
 outputs:
-
-  - id: picard_refflat
-    label: Picard refFlat
-    doc: Picard refFlat reference
-    type: File
-    outputBinding:
-      glob: "*.refFlat.txt"
+- doc: Picard refFlat reference
+  id: picard_refflat
+  label: Picard refFlat
+  outputBinding:
+    glob: '*.refFlat.txt'
+  type: File

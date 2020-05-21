@@ -1,75 +1,56 @@
-#!/usr/bin/env cwl-runner
-
+baseCommand:
+- picard.sh
+- SamToFastq
 class: CommandLineTool
 cwlVersion: v1.0
-id: picard-samtofastq
-label: Picard SamToFastq
-
-doc: |
-  Use Picard to convert BAM to FASTQ.
-
-  Original command:
-  java -Xmx4G -jar $PICARD SamToFastq \
-    INPUT=/dev/stdin \
-    FASTQ="${fastqdir}/${sample}.r1.fastq" \
-    SECOND_END_FASTQ="${fastqdir}/${sample}.r2.fastq" \
-    VALIDATION_STRINGENCY=SILENT
-
-baseCommand: ['picard.sh', 'SamToFastq']
-
-requirements:
-  - class: InlineJavascriptRequirement
-
+doc: "Use Picard to convert BAM to FASTQ.\n\nOriginal command:\njava -Xmx4G -jar $PICARD\
+  \ SamToFastq \\\n  INPUT=/dev/stdin \\\n  FASTQ=\"${fastqdir}/${sample}.r1.fastq\"\
+  \ \\\n  SECOND_END_FASTQ=\"${fastqdir}/${sample}.r2.fastq\" \\\n  VALIDATION_STRINGENCY=SILENT\n"
 hints:
-  - class: DockerRequirement
-    dockerPull: 'sagebionetworks/dockstore-tool-picardtools:0.0.0'
-
+- class: DockerRequirement
+  dockerPull: sagebionetworks/dockstore-tool-picardtools:0.0.1-6da3af6
+id: picard-samtofastq
 inputs:
-
-  - id: aligned_reads_sam
-    label: Aligned reads SAM
-    doc: Reads data file in SAM (or BAM) format
-    type: File
-    inputBinding:
-      position: 1
-      prefix: INPUT=
-      separate: false
-
-  - id: reads_r1_fastq
-    label: R1 reads FASTQ
-    type: string
-    inputBinding:
-      position: 2
-      prefix: FASTQ=
-      separate: false
-
-  - id: reads_r2_fastq
-    label: R2 reads FASTQ
-    type: string?
-    inputBinding:
-      position: 3
-      prefix: SECOND_END_FASTQ=
-      separate: false
-
-  - id: validation_stringency
-    type: string
-    default: "LENIENT"
-    inputBinding:
-      position: 4
-      prefix: VALIDATION_STRINGENCY=
-      separate: false
-
+- doc: Reads data file in SAM (or BAM) format
+  id: aligned_reads_sam
+  inputBinding:
+    position: 1
+    prefix: INPUT=
+    separate: false
+  label: Aligned reads SAM
+  type: File
+- id: reads_r1_fastq
+  inputBinding:
+    position: 2
+    prefix: FASTQ=
+    separate: false
+  label: R1 reads FASTQ
+  type: string
+- id: reads_r2_fastq
+  inputBinding:
+    position: 3
+    prefix: SECOND_END_FASTQ=
+    separate: false
+  label: R2 reads FASTQ
+  type: string?
+- default: LENIENT
+  id: validation_stringency
+  inputBinding:
+    position: 4
+    prefix: VALIDATION_STRINGENCY=
+    separate: false
+  type: string
+label: Picard SamToFastq
 outputs:
-  - id: mate_1
-    label: mate 1 fastq
-    type: File
-    outputBinding:
-      glob: "*_1.fastq"
-
-  - id: mate_2
-    label: mate 2 fastq
-    type: File
-    outputBinding:
-      glob: "*_2.fastq"
-
-
+- id: mate_1
+  label: mate 1 fastq
+  outputBinding:
+    glob: '*_1.fastq'
+  type: File
+- id: mate_2
+  label: mate 2 fastq
+  outputBinding:
+    glob: '*_2.fastq'
+  type: File
+requirements:
+- class: InlineJavascriptRequirement
