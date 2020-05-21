@@ -5,8 +5,6 @@ LABEL base_image="biocontainers/biocontainers:v1.0.0_cv4"
 LABEL about.summary="Docker image for template dockstore tool"
 LABEL about.license="SPDX:MIT"
 
-COPY VERSION /
-COPY SOFTWARE_VERSION /
 
 USER root
 
