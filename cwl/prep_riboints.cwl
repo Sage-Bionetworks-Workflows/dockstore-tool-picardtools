@@ -12,7 +12,7 @@ baseCommand: ['make_riboints.sh']
 
 hints:
   - class: DockerRequirement
-    dockerPull: 'sagebionetworks/dockstore-tool-picardtools:develop-latest'
+    dockerPull: 'sagebionetworks/dockstore-tool-picardtools:0.0.0'
 
 inputs:
 

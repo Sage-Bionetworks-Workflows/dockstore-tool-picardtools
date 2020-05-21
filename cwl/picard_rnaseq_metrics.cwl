@@ -30,7 +30,7 @@ requirements:
 
 hints:
   - class: DockerRequirement
-    dockerPull: 'sagebionetworks/dockstore-tool-picardtools:develop-latest'
+    dockerPull: 'sagebionetworks/dockstore-tool-picardtools:0.0.0'
 
 inputs:
   - id: aligned_reads_sam
