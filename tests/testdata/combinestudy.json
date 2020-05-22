@@ -1,0 +1,13 @@
+{
+    "sample_suffix": "_combined_metrics.csv",
+    "picard_metrics": [
+      {
+        "class": "File",
+        "path": "sample1_combined_metrics.csv"
+      },
+      {
+        "class": "File",
+        "path": "sample2_combined_metrics.csv"
+      }
+    ]
+}

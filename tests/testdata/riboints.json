@@ -1,0 +1,10 @@
+{
+    "genemodel_gtf": {
+        "class": "File",
+        "path": "./small.gtf"
+    },
+    "aligned_reads_sam": {
+        "class": "File",
+        "path": "./STARAligned.sortedByCoord.out.bam"
+    }
+}

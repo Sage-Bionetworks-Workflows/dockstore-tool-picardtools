@@ -1,0 +1,32 @@
+baseCommand:
+- make_riboints.sh
+class: CommandLineTool
+cwlVersion: v1.0
+doc: 'Generate ribosomal intervals reference file for Picard CollectRnaSeqMetrics.
+
+  '
+hints:
+- class: DockerRequirement
+  dockerPull: sagebionetworks/dockstore-tool-picardtools:0.0.1-6da3af6
+id: prep-riboints
+inputs:
+- doc: Gene annotations (gene model) in GTF format from Gencode
+  id: genemodel_gtf
+  inputBinding:
+    position: 0
+  label: Gene model GTF
+  type: File
+- doc: Reads data file in SAM (or BAM) format
+  id: aligned_reads_sam
+  inputBinding:
+    position: 1
+  label: Aligned reads SAM
+  type: File
+label: Build Picard ribosomal intervals
+outputs:
+- doc: Picard ribosomal (rRNA) interval list file
+  id: picard_riboints
+  label: Picard ribosomal intervals
+  outputBinding:
+    glob: '*.rRNA.interval_list'
+  type: File

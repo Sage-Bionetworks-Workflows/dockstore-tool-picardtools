@@ -1,0 +1,84 @@
+- job: ./testdata/refflat.json
+  output:
+    picard_refflat:
+      basename: small.gtf.refFlat.txt
+      checksum: sha1$3d9e4c6537185b7c815a9b2da10e38167c871fb7
+      class: File
+      size: 1696
+  tool: ../cwl/prep_refflat.cwl
+  doc: Test that a picard-compatible refflat file is created
+  short_name: refflat
+- job: ./testdata/riboints.json
+  output:
+    picard_riboints:
+      basename: small.gtf.rRNA.interval_list
+      checksum: sha1$9036a3e9101b1a4ce06d0c5432a505af8779ba0a
+      class: File
+      size: 86
+  tool: ../cwl/prep_riboints.cwl
+  doc: Test that a picard-compatible ribosomal interval file is created
+  short_name: riboints
+- job: ./testdata/rnametrics.json
+  output:
+    rnaseqmetrics_txt:
+      basename: output_rnaseq_metrics.txt
+      class: File
+      size: 1449
+  tool: ../cwl/picard_rnaseq_metrics.cwl
+  doc: Test that we can calculate picard RNASeq metrics
+  short_name: RNA metrics
+- job: ./testdata/alignmetrics.json
+  output:
+    alignmentsummarymetrics_txt:
+      basename: output_alignment_metrics.txt
+      class: File
+      size: 1909
+  tool: ../cwl/picard_alignmentsummary_metrics.cwl
+  doc: Test that we can calculate picard alignment summary metrics
+  short_name: alignment metrics
+- job: ./testdata/combinesample.json
+  output:
+    combined_metrics_csv:
+      basename: test_combined_metrics.csv
+      checksum: sha1$7532f37ed27a54645aff4e185ed4e45005ff8171
+      class: File
+      size: 1906
+  tool: ../cwl/combine_metrics_sample.cwl
+  doc: Test that we can combine picard rnaseq and alignment summary metrics into a single file for a sample
+  short_name: combine sample metrics
+- job: ./testdata/combinestudy.json
+  output:
+    combined_metrics:
+      basename: Study_all_metrics_matrix.txt
+      checksum: sha1$1059f7f84f4ae4f50ab29dbb2bbe184a85e3ff2f
+      class: File
+      size: 2049
+  tool: ../cwl/combine_metrics_study.cwl
+  doc: Test that we can combine picard metrics from multiple samples into a single file
+  short_name: combine study metrics
+- job: ./testdata/sortsam.json
+  output:
+    sorted_reads_bam:
+      basename: sorted_test.bam
+      checksum: sha1$c2f7084149cb4d5353fdaa660e2d77cc7b375678
+      class: File
+      size: 970672
+  tool: ../cwl/picard_sortsam.cwl
+  doc: Test that we can sort a sam or bam file
+  short_name: sortsam
+- job: ./testdata/samtofastq.json
+  output:
+    mate_1:
+      basename: test_1.fastq
+      checksum: sha1$c8e659931aa3aef2bd0235584ee6d476439c95cf
+      class: File
+      size: 2238894
+    mate_2:
+      basename: test_2.fastq
+      checksum: sha1$7a3a6955b7e6d150942011056b08691f43c6576b
+      class: File
+      size: 2238894
+  tool: ../cwl/picard_samtofastq.cwl
+  doc: Test that we can convert a bam or sam file into fastq file(s)
+  short_name: samtofastq
+

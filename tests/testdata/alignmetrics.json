@@ -1,0 +1,10 @@
+{
+    "genome_fasta": {
+        "class": "File",
+        "path": "./small.fa"
+    },
+    "aligned_reads_sam": {
+        "class": "File",
+        "path": "./STARAligned.sortedByCoord.out.bam"
+    }
+}
