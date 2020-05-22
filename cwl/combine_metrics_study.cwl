@@ -10,7 +10,7 @@ doc: 'Combine individual sample metric files into a sample x metric matrix file.
   '
 hints:
 - class: DockerRequirement
-  dockerPull: sagebionetworks/dockstore-tool-picardtools:0.0.1-6da3af6
+  dockerPull: sagebionetworks/dockstore-tool-picardtools:0.0.1
 id: combine-metrics
 inputs:
 - id: picard_metrics

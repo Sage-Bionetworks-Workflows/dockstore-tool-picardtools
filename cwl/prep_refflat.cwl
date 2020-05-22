@@ -7,7 +7,7 @@ doc: 'Generate refFlat reference file for Picard CollectRnaSeqMetrics.
   '
 hints:
 - class: DockerRequirement
-  dockerPull: sagebionetworks/dockstore-tool-picardtools:0.0.1-6da3af6
+  dockerPull: sagebionetworks/dockstore-tool-picardtools:0.0.1
 id: prep-refflat
 inputs:
 - doc: Gene annotations (gene model) in GTF from Gencode
