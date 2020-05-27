@@ -6,8 +6,8 @@ This repository contains a dockerfile and the following CWL tools:
 
 - [picard_sortsam.cwl](cwl/picard_sortsam.cwl): sort input BAM files using the [SortSam](https://broadinstitute.github.io/picard/command-line-overview.html#SortSam) function
 - [picard_samtofastq.cwl](cwl/picard_samtofastq.cwl): convert BAM file to paired or single end fastq files using the [SamToFastq](https://broadinstitute.github.io/picard/command-line-overview.html#SamToFastq) function 
-- [prep_refflat.cwl](cwl/prep_refflat.cwl): prepares a refflat file that will be used by Picard. The script can be found (here)[bin/make_refflat.sh]
-- [prep_riboints.cwl](cwl/prep_riboints.cwl): prepeares a ribosomal interval file that will be used by Picard. The script can be found (here)[bin/make_riboints.sh]
+- [prep_refflat.cwl](cwl/prep_refflat.cwl): prepares a refflat file that will be used by Picard. The script can be found [here](bin/make_refflat.sh)
+- [prep_riboints.cwl](cwl/prep_riboints.cwl): prepeares a ribosomal interval file that will be used by Picard. The script can be found [here](bin/make_riboints.sh)
 - [picard_rnaseq_metrics.cwl](cwl/picard_rnaseq_metrics.cwl): collects RNASeq metrics using the [CollectRnaSeqMetrics](https://broadinstitute.github.io/picard/command-line-overview.html#CollectRnaSeqMetrics) function
 - [picard_alignmentsummary_metrics.cwl](cwl/picard_alignmentsummary_metrics.cwl): collects alignment summary metrics using the [CollectAlignmentSummaryMetrics](https://broadinstitute.github.io/picard/command-line-overview.html#CollectAlignmentSummaryMetrics) function
 - [combine_metrics_sample.cwl](cwl/combine_metrics_sample.cwl): combines alignment summary and rnaseq metrics into a single file for a given sample. The script can be found [here](combine_metrics_sample.py)
