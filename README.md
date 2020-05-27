@@ -10,7 +10,7 @@ This repository contains a dockerfile and the following CWL tools:
 - [prep_riboints.cwl](cwl/prep_riboints.cwl): prepeares a ribosomal interval file that will be used by Picard. The script can be found [here](bin/make_riboints.sh)
 - [picard_rnaseq_metrics.cwl](cwl/picard_rnaseq_metrics.cwl): collects RNASeq metrics using the [CollectRnaSeqMetrics](https://broadinstitute.github.io/picard/command-line-overview.html#CollectRnaSeqMetrics) function
 - [picard_alignmentsummary_metrics.cwl](cwl/picard_alignmentsummary_metrics.cwl): collects alignment summary metrics using the [CollectAlignmentSummaryMetrics](https://broadinstitute.github.io/picard/command-line-overview.html#CollectAlignmentSummaryMetrics) function
-- [combine_metrics_sample.cwl](cwl/combine_metrics_sample.cwl): combines alignment summary and rnaseq metrics into a single file for a given sample. The script can be found [here](combine_metrics_sample.py)
+- [combine_metrics_sample.cwl](cwl/combine_metrics_sample.cwl): combines alignment summary and rnaseq metrics into a single file for a given sample. The script can be found [here](bin/combine_metrics_sample.py)
 - [combine_metrics_study.cwl](cwl/combine_metrics_study.cwl): combines picard metrics from multiple samples into a single file. The script can be found [here](bin/combine_metrics_study.R)
 ## Dockerfile
 
