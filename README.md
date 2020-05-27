@@ -1,4 +1,4 @@
-# dockstore-tool-star
+# dockstore-tool-picardtools
 Versioned Docker image and CWL tools for Picard Tools
 
 # Description
