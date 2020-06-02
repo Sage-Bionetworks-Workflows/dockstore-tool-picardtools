@@ -12,20 +12,23 @@ This repository contains a dockerfile and the following CWL tools:
 - [picard_alignmentsummary_metrics.cwl](cwl/picard_alignmentsummary_metrics.cwl): collects alignment summary metrics using the [CollectAlignmentSummaryMetrics](https://broadinstitute.github.io/picard/command-line-overview.html#CollectAlignmentSummaryMetrics) function
 - [combine_metrics_sample.cwl](cwl/combine_metrics_sample.cwl): combines alignment summary and rnaseq metrics into a single file for a given sample. The script can be found [here](bin/combine_metrics_sample.py)
 - [combine_metrics_study.cwl](cwl/combine_metrics_study.cwl): combines picard metrics from multiple samples into a single file. The script can be found [here](bin/combine_metrics_study.R)
+
 ## Dockerfile
 
-A Dockerfile should exist in the top level directory of this repository.
+A Dockerfile exists in the top level directory of this repository. Builds are automatically triggered on pushes in which the most recent commit message does not contain the `[skip-ci]` string.
 
 ## CWL
 
-A directory [cwl](cwl) should contain tool definitions in the CWL language.
+The [cwl](cwl) folder contains tool definitions in the Common Workflow language.
 
 ## Tests
 
 [`cwltest`](https://github.com/common-workflow-language/cwltest) is used for
-testing tools. Add test descriptions to `tests/test-descriptions.yaml`. Each test
-added requires a file describing the job inputs that should be added to the
-[tests](tests) directory.
+testing tools. Tests can be added in `tests/test-descriptions.yaml`. Tests are automatically performed on pushes in which the most recent commit message does not contain the `[skip-ci]` string.  When tests pass, a docker image is published to dockerhub, and the cwl files are updated to point to this new build.
+
+# Contributing
+
+To contribute changes to the dockerfile or CWL tools, please create a fork of this repository and develop on a feature branch. Pull requests will be reviewed before merging into this repository.
 
 ## Continuous Deployment and Versioning
 
@@ -58,7 +61,7 @@ Versioning is achieved through git tagging using
 [semantic versioning](https://semver.org/). Each push to master will generate an
 increment to the patch value, unless the commit contains the string '[skip-ci]'.
 
-Use the release script to do a minor or major release. 
+Use the release script to do a minor or major release.
 To create a minor release, run `python utils/release.py` from the project root.
 To create a major release, run the same command but add the flag `--major`.
 
@@ -74,7 +77,7 @@ Alternately, to do a minor or major releases manually:
 1. Push the tag: `git push --tags`
 
 Whether you use the release script or create a manual tag, a tag push activates
-the `tag-ci.yaml` action instead of the `ci.yaml` action, and builds the docker 
+the `tag-ci.yaml` action instead of the `ci.yaml` action, and builds the docker
 image tagged with the release version number.
 
 #### Branch Versioning
@@ -91,3 +94,4 @@ If you choose to make this change, for best results we recommend that you also
 use the no-fast-forward flag (`--no-ff`) when merging branches to master. Using
 that flag will ensure that a new merge commit is created, and CI will run
 correctly. Without a new merge commit, versioning won't work correctly.
+
