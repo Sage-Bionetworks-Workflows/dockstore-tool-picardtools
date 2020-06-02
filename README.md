@@ -2,7 +2,7 @@
 Versioned Docker image and CWL tools for Picard Tools
 
 # Description
-This repository contains a dockerfile and the following CWL tools:
+This repository contains the following tools:
 
 - [picard_sortsam.cwl](cwl/picard_sortsam.cwl): sort input BAM files using the [SortSam](https://broadinstitute.github.io/picard/command-line-overview.html#SortSam) function
 - [picard_samtofastq.cwl](cwl/picard_samtofastq.cwl): convert BAM file to paired or single end fastq files using the [SamToFastq](https://broadinstitute.github.io/picard/command-line-overview.html#SamToFastq) function 
