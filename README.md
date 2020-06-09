@@ -46,15 +46,11 @@ runs on each tag push.
 ### Credentials
 
 This uses GitHub secrets to store credentials for the GitHub action to push to
-the `sagebionetworks` DockerHub account using a service account. All repositories
-that are generated from this template will need to have this service account
-added to it.
+the `sagebionetworks` DockerHub account using a service account.
 
 ### DockerHub
 
-Ideally, the name of the DockerHub repository should be the same as the GitHub
-repository. The workflow uses this name by default as the name of the DockerHub
-branch to push to.
+The workflow pushes to the [sagebionetworks](https://hub.docker.com/orgs/sagebionetworks) organization on Dockerhub. The Dockerhub repository has the same name as this github repository. 
 
 ### Versioning
 Versioning is achieved through git tagging using
