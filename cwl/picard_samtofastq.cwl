@@ -8,7 +8,7 @@ doc: "Use Picard to convert BAM to FASTQ.\n\nOriginal command:\njava -Xmx4G -jar
   \ \\\n  SECOND_END_FASTQ=\"${fastqdir}/${sample}.r2.fastq\" \\\n  VALIDATION_STRINGENCY=SILENT\n"
 hints:
 - class: DockerRequirement
-  dockerPull: sagebionetworks/dockstore-tool-picardtools:0.0.1
+  dockerPull: sagebionetworks/dockstore-tool-picardtools:0.0.2-5d3bab4
 id: picard-samtofastq
 inputs:
 - doc: Reads data file in SAM (or BAM) format

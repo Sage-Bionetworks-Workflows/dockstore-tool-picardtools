@@ -9,7 +9,7 @@ doc: 'Combine data from one or more Picard metrics outputs into a
   '
 hints:
 - class: DockerRequirement
-  dockerPull: sagebionetworks/dockstore-tool-picardtools:0.0.1
+  dockerPull: sagebionetworks/dockstore-tool-picardtools:0.0.2-5d3bab4
 id: combine-metrics
 inputs:
 - id: basef
