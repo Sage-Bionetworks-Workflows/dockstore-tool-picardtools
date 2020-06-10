@@ -7,7 +7,7 @@ doc: 'Generate ribosomal intervals reference file for Picard CollectRnaSeqMetric
   '
 hints:
 - class: DockerRequirement
-  dockerPull: sagebionetworks/dockstore-tool-picardtools:0.0.1
+  dockerPull: sagebionetworks/dockstore-tool-picardtools:0.0.2-5fbea4d
 id: prep-riboints
 inputs:
 - doc: Gene annotations (gene model) in GTF format from Gencode
