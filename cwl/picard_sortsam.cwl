@@ -15,6 +15,7 @@ hints:
   dockerPull: sagebionetworks/dockstore-tool-picardtools:0.0.1
 id: picard_sortsam
 inputs:
+# test comment
 - doc: Reads data file in SAM (or BAM) format
   id: aligned_reads_sam
   inputBinding:
