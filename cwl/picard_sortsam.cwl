@@ -23,6 +23,7 @@ inputs:
     separate: false
   label: Aligned reads SAM
   type: File
+# test comment
 - default: queryname
   id: sort_order
   inputBinding:
