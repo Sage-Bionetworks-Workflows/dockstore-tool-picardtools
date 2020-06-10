@@ -32,7 +32,7 @@ To contribute changes to the dockerfile or CWL tools, please create a fork of th
 
 ## Continuous Deployment and Versioning
 
-This template uses GitHub actions to perform automated versioning, version
+This repository uses GitHub actions to perform automated versioning, version
 bumping, building of tagged Docker images, and pushing images to DockerHub.
 
 ### CI
