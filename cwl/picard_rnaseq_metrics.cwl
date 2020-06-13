@@ -12,7 +12,7 @@ doc: "Use Picard to compute alignment summary metrics.\n\nOriginal command:\njav
   \ \\\n  TMP_DIR=\"${scratchdir}/${USER}/${sample}/\"\n"
 hints:
 - class: DockerRequirement
-  dockerPull: sagebionetworks/dockstore-tool-picardtools:0.0.1
+  dockerPull: sagebionetworks/dockstore-tool-picardtools:0.0.2
 id: picard-rnaseqmetrics
 inputs:
 - doc: Reads data file in SAM (or BAM) format
