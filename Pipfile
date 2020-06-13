@@ -12,7 +12,7 @@ gitpython = "*"
 pyyaml = "*"
 cwltest = "*"
 cwlref-runner = "*"
+schema-salad = "==6.0.20200601095207"
 
 [requires]
 python_version = "3.7"
-
