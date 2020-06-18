@@ -113,4 +113,3 @@ def main(tools_dir, new_version):
 if __name__ == '__main__':
   tools_dir, new_version = parse_args()
   main(tools_dir=tools_dir, new_version=new_version)
-
