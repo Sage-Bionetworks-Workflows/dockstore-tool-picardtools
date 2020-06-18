@@ -93,4 +93,3 @@ class TestBumpCwlVersion(unittest.TestCase):
       expected_tool = test_datum[1]
       new_tool = bump_cwl_version.edit_tool(tool, new_version)
       self.assertEqual(new_tool, yaml.dump(expected_tool))
-

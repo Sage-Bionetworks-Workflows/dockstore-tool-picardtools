@@ -64,4 +64,3 @@ if repo.is_dirty():
 new_tagname = f'v{str(new_version)}'
 new_tag = repo.create_tag(new_tagname)
 repo.remote().push(new_tag)
-
