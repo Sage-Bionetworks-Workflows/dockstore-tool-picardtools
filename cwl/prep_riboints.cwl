@@ -1,15 +1,5 @@
 $namespaces:
   s: https://schema.org/
-s:author:
-  - class: s:Person
-    s:identifier: https://orcid.org/0000-0001-9758-0176
-    s:email: mailto:james.eddy@sagebase.org
-    s:name: James Eddy
-s:contributor:
-  - class: s:Person
-    s:identifier: https://orcid.org/0000-0002-3659-9663
-    s:email: mailto:william.poehlman@sagebase.org
-    s:name: William Poehlman
 baseCommand:
 - make_riboints.sh
 class: CommandLineTool
@@ -19,7 +9,7 @@ doc: 'Generate ribosomal intervals reference file for Picard CollectRnaSeqMetric
   '
 hints:
 - class: DockerRequirement
-  dockerPull: sagebionetworks/dockstore-tool-picardtools:0.0.3
+  dockerPull: sagebionetworks/dockstore-tool-picardtools:0.0.4
 id: prep-riboints
 inputs:
 - doc: Gene annotations (gene model) in GTF format from Gencode
@@ -42,3 +32,13 @@ outputs:
   outputBinding:
     glob: '*.rRNA.interval_list'
   type: File
+s:author:
+- class: s:Person
+  s:email: mailto:james.eddy@sagebase.org
+  s:identifier: https://orcid.org/0000-0001-9758-0176
+  s:name: James Eddy
+s:contributor:
+- class: s:Person
+  s:email: mailto:william.poehlman@sagebase.org
+  s:identifier: https://orcid.org/0000-0002-3659-9663
+  s:name: William Poehlman

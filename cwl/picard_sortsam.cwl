@@ -1,16 +1,4 @@
 $namespaces:
-  s: https://schema.org/
-s:author:
-  - class: s:Person
-    s:identifier: https://orcid.org/0000-0001-9758-0176
-    s:email: mailto:james.eddy@sagebase.org
-    s:name: James Eddy
-s:contributor:
-  - class: s:Person
-    s:identifier: https://orcid.org/0000-0002-3659-9663
-    s:email: mailto:william.poehlman@sagebase.org
-    s:name: William Poehlman
-$namespaces:
   sbg: https://www.sevenbridges.com
 arguments:
 - position: 0
@@ -24,7 +12,7 @@ doc: "Use Picard to sort a SAM or BAM file.\n\nOriginal command:\njava -Xmx8G -j
   \ \\\n  QUIET=true \\\n  VALIDATION_STRINGENCY=SILENT \\\n  COMPRESSION_LEVEL=0\n"
 hints:
 - class: DockerRequirement
-  dockerPull: sagebionetworks/dockstore-tool-picardtools:0.0.3
+  dockerPull: sagebionetworks/dockstore-tool-picardtools:0.0.4
 id: picard_sortsam
 inputs:
 - doc: Reads data file in SAM (or BAM) format
@@ -84,3 +72,13 @@ outputs:
   type: File
 requirements:
 - class: InlineJavascriptRequirement
+s:author:
+- class: s:Person
+  s:email: mailto:james.eddy@sagebase.org
+  s:identifier: https://orcid.org/0000-0001-9758-0176
+  s:name: James Eddy
+s:contributor:
+- class: s:Person
+  s:email: mailto:william.poehlman@sagebase.org
+  s:identifier: https://orcid.org/0000-0002-3659-9663
+  s:name: William Poehlman
