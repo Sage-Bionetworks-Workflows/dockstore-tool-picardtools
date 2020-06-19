@@ -1,4 +1,16 @@
 $namespaces:
+  s: https://schema.org/
+s:author:
+  - class: s:Person
+    s:identifier: https://orcid.org/0000-0001-9758-0176
+    s:email: mailto: james.eddy@sagebase.org
+    s:name: James Eddy
+s:contributor:
+  - class: s:Person
+    s:identifier: https://orcid.org/0000-0002-3659-9663
+    s:email: mailto:william.poehlman@sagebase.org
+    s:name: William Poehlman
+$namespaces:
   sbg: https://www.sevenbridges.com
 arguments:
 - position: 0
