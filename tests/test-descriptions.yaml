@@ -32,7 +32,7 @@
     alignmentsummarymetrics_txt:
       basename: output_alignment_metrics.txt
       class: File
-      size: 1909
+      size: 1879
   tool: ../cwl/picard_alignmentsummary_metrics.cwl
   doc: Test that we can calculate picard alignment summary metrics
   short_name: alignment metrics

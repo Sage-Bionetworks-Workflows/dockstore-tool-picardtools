@@ -60,7 +60,7 @@ inputs:
     prefix: IS_BISULFITE_SEQUENCED=
     separate: false
   type: string
-- default: ''
+- default: null
   id: adapter_sequence
   inputBinding:
     position: 7
