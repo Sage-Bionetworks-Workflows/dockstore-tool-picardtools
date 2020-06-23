@@ -12,7 +12,7 @@ doc: "Use Picard to sort a SAM or BAM file.\n\nOriginal command:\njava -Xmx8G -j
   \ \\\n  QUIET=true \\\n  VALIDATION_STRINGENCY=SILENT \\\n  COMPRESSION_LEVEL=0\n"
 hints:
 - class: DockerRequirement
-  dockerPull: sagebionetworks/dockstore-tool-picardtools:1.0.0
+  dockerPull: sagebionetworks/dockstore-tool-picardtools:1.0.1
 id: picard_sortsam
 inputs:
 - doc: Reads data file in SAM (or BAM) format
